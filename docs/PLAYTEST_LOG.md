@@ -21,3 +21,13 @@
 - Added a complete input-only simulation route: normal spawn → fly under cabinet → sandwich → E dwell → take off/burst away → navigate to open window → escape. No fly teleport, seeded anger or AI override in this route. The separate intentional lamp test still uses a staged initial state, as described above.
 - Added nonzero score repeatability: 30 ear points after three seconds at each of 30/60/120 rendered FPS in the harness, in addition to identical traversal results.
 - Final harness result: 14/14. Automated results and browser UI interaction are not actual human feel testing; fresh-player gates remain open.
+
+## Second pass · response to user play feedback · rules/physics v2
+
+- User described the concept as only okay and said movement, human reactions, lamp baiting and overall excitement all needed improvement. This is direct negative qualitative feedback, not a passed M1 gate. No new fresh-player count is inferred.
+- Focused iteration: faster response/braking and burst availability; better visible fly; sliding cabinet collision; more expressive human with an actual striking arm; interaction meters and score/crash feedback; context-specific objective and lamp alignment guidance; optional recorded example.
+- `node tests/simulation.cjs`: **19/19 pass**. All previous coverage retained. Added stopping-distance check (<18 units, <4 units/s after 0.2s), wall sliding, removal of harmless proximity dodge points, complete normal-spawn lamp-bait-and-escape route using only input, and demo completion without modifying best score.
+- Full natural lamp route: 8.4083 simulated seconds; irritation 109.9167, dodge 150, collateral 400, escape bonus 165; rounded total 825. Includes sandwich, waiting out the first swat, approaching ear, intentional aligned heavy swat, perpendicular burst and exit traversal. No injected positions, anger or AI states in this route.
+- 30/60/120 FPS harness movement results identical: x=808.0073045503902, y=535 at two seconds. Nonzero ear scoring remains identical (30 points / 3s). Ten simulated minutes and rapid reset tests still pass.
+- Initial natural route re-entered an active swat and died. The corrected input route waits for recovery. This remains a player timing decision; it did not justify immunity or post-commit retargeting.
+- Tests are automated simulation and recorded input, not human feel testing. Decision remains **iterate / reassess M1 with the user**, not proceed to M2. The next useful evidence is whether the revised flight and bait sequence feel better in the user's hands. Five-player comprehension/enjoyment gates remain unmet.
