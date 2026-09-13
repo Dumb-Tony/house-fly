@@ -21,5 +21,3 @@ Check zero score from idle hiding, one award per prop, target diminishing return
 
 ## Decision rule and deliverables
 Deliver one offline HTML, recorded attack timings and playtest notes. If players dodge but do not understand baiting, change staging and causal effects before adding attacks. If flight is unpleasant, pause AI work and tune movement in the same room. Escalation passes only if it creates intentional risk, not merely faster death.
-
-
